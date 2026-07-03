@@ -1,0 +1,378 @@
+/* ── Seção: fundo branco, único trecho claro da LP ── */
+.section {
+  background: var(--white);
+  color: var(--dark1);
+  position: relative;
+  z-index: 2;
+}
+
+.pinWrap {
+  position: relative;
+}
+
+.sticky {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .sticky { grid-template-columns: 1fr; }
+}
+
+/* ── Coluna de texto ── */
+.stickyText {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.progressBar {
+  position: relative;
+  height: 1px;
+  background: var(--light1);
+  overflow: hidden;
+  border-radius: 1px;
+  flex-shrink: 0;
+  margin-bottom: 1.25rem;
+}
+
+.progressFill {
+  position: absolute;
+  inset: 0;
+  right: auto;
+  background: var(--amber);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stepsWrap {
+  position: relative;
+  min-height: 460px;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .stepsWrap { min-height: 420px; }
+}
+
+/* ── Step: card claro com sombra sutil (sem glow) ── */
+.step {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--offwhite);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  box-shadow: 0 4px 24px rgba(48, 48, 48, 0.06), 0 1px 2px rgba(48, 48, 48, 0.04);
+  will-change: opacity, transform;
+}
+
+.stepHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.stepNum {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.tag {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-family: var(--font-display);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--dark1);
+  margin-bottom: 0.4rem;
+}
+
+.indicacao {
+  font-size: 0.92rem;
+  color: var(--mid);
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+.tipo {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dark1);
+  background: var(--light1);
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--dark1);
+}
+
+.priceUnit {
+  font-size: 0.85rem;
+  color: var(--mid);
+}
+
+.priceSub {
+  font-size: 0.78rem;
+  color: var(--mid);
+  margin-bottom: 1.5rem;
+}
+
+.items {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+}
+
+.item {
+  font-size: 0.85rem;
+  color: var(--mid);
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.item::before {
+  content: '—';
+  color: var(--amber);
+  flex-shrink: 0;
+}
+
+/* ── Fotos (coluna direita) ── */
+.fotos {
+  position: relative;
+  height: 520px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(48, 48, 48, 0.1);
+}
+
+.foto {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  will-change: opacity, transform;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Floating dots nav ── */
+.dotsNav {
+  position: fixed;
+  right: 1.75rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(56px);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dotsNavVisible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Vertical line behind the dots */
+.dotsTrack {
+  position: absolute;
+  width: 1px;
+  top: 18px;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(201, 148, 58, 0.25);
+  pointer-events: none;
+}
+
+.dotBtn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--amber50);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  padding: 0;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--amber50);
+  flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s, color 0.25s,
+              transform 0.25s, box-shadow 0.25s;
+}
+
+.dotBtn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+  transform: scale(1.12);
+  box-shadow: 0 0 0 3px rgba(174, 131, 66, 0.15);
+}
+
+.dotBtnActive {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--white);
+  transform: scale(1.1);
+  box-shadow: 0 2px 12px rgba(174, 131, 66, 0.35);
+}
+
+/* Tooltip — package name to the left on hover */
+.dotBtn::before {
+  content: attr(data-label);
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--dark1);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  padding: 0.28rem 0.6rem;
+  border-radius: 0.35rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.dotBtn:hover::before {
+  opacity: 1;
+}
+
+/* ── Mobile: ajuste de tamanhos, GSAP controla posição/opacidade ── */
+@media (max-width: 768px) {
+  .section :global(.container) {
+    padding-block: 2rem !important;
+  }
+
+  /* Sticky vira flex-column com altura máxima do viewport
+     para que card + foto caibam sem corte */
+  .sticky {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    height: calc(100dvh - 80px - 2rem);
+  }
+
+  .stickyText {
+    flex: 0 0 auto;
+  }
+
+  /* Grid sobrepõe todos os steps na mesma célula;
+     auto-dimensionado pelo card mais alto */
+  .stepsWrap {
+    min-height: auto;
+    display: grid;
+    flex: 0 0 auto;
+  }
+
+  .step {
+    grid-row: 1;
+    grid-column: 1;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .stepHead {
+    margin-bottom: 0.75rem;
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  .indicacao {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tipo {
+    font-size: 0.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .price {
+    font-size: 1.75rem;
+  }
+
+  .priceSub {
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .items {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .item {
+    font-size: 0.82rem;
+    line-height: 1.3;
+  }
+
+  /* Foto absorve o espaço restante após o card, sem ultrapassar o viewport */
+  .fotos {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 120px;
+    max-height: 240px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+  }
+
+}

@@ -1,0 +1,57 @@
+.gastronomia { background: var(--offwhite); color: var(--dark1); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+
+.content {}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--dark1);
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--mid);
+  margin-bottom: 1rem;
+}
+
+.chefs {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(89, 89, 89, 0.2);
+}
+
+.chefsLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 0.75rem;
+}
+
+.chefsNames {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--dark1);
+  line-height: 1.8;
+}
+
+.imgWrap {
+  position: relative;
+  height: 520px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}

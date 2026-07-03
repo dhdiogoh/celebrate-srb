@@ -1,0 +1,36 @@
+/* ═══════════════════════════════════════════
+   CELEBRATE — Design Tokens
+   Centralize aqui todas as CSS Custom Props.
+   Ao migrar para Sanity, só este arquivo muda.
+═══════════════════════════════════════════ */
+
+:root {
+  /* ── Cores ── */
+  --dark1: #303030;
+  --dark2: #353535;
+  --mid: #595959;
+  --light1: #e8e8ea;
+  --light2: #cfcfcf;
+  --light3: #9f9f9f;
+  --white: #ffffff;
+  --black: #000000;
+  --offwhite: #f0efed;
+
+  /* ── Amber (cor de destaque) ── */
+  --amber: #C9943A;
+  --amber50: rgba(201, 148, 58, 0.5);
+  --amber15: rgba(201, 148, 58, 0.15);
+
+  /* ── Tipografia ── */
+  --font-display: 'Space Grotesk', Arial, sans-serif;
+  --font-body: 'Inter', Arial, sans-serif;
+  --font-script: 'Dancing Script', cursive;
+
+  /* ── Forma ── */
+  --radius: 1.4rem;
+
+  /* ── Espaçamento de seção ── */
+  --section-pad-sm: 60px;
+  --section-pad-md: 96px;
+  --section-pad-lg: 140px;
+}

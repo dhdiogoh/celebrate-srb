@@ -1,0 +1,59 @@
+.configs { background: var(--white); color: var(--dark1); }
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+  color: var(--dark1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+.card {
+  border: 1px solid var(--light1);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.card:hover { border-color: var(--amber50); }
+
+.imgWrap {
+  height: 280px;
+  overflow: hidden;
+}
+
+.imgWrap img { transition: transform 0.5s ease; }
+.card:hover .imgWrap img { transform: scale(1.04); }
+
+.cardContent { padding: 1.75rem; }
+
+.tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-family: var(--font-display);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--dark1);
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc { font-size: 0.85rem; color: var(--mid); line-height: 1.7; }

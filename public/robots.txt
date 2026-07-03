@@ -1,0 +1,6 @@
+# Celebrate LP
+
+User-agent: *
+Allow: /
+
+Sitemap: https://celebrate.com.br/sitemap.xml

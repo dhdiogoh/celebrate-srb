@@ -1,0 +1,72 @@
+.wrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0 3.5rem;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: logoScroll 45s linear infinite;
+}
+
+.track:hover {
+  animation-play-state: paused;
+}
+
+/* Cada slot: altura fixa 56px, logo bounded a 150px de largura */
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 4.5rem;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.item::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 20px;
+  background: var(--light1);
+}
+
+.logo {
+  max-width: 150px;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  background: transparent;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter 0.35s ease, opacity 0.35s ease;
+  display: block;
+}
+
+.logo:hover {
+  filter: none;
+  opacity: 1;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--light2);
+  white-space: nowrap;
+}
+
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

@@ -1,0 +1,116 @@
+/* ═══════════════════════════════════════════
+   CELEBRATE — Global Styles
+═══════════════════════════════════════════ */
+@import './tokens.css';
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=Dancing+Script:wght@600&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--dark1);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--dark2);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Container ── */
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Section padding ── */
+section {
+  padding-block: var(--section-pad-sm);
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-block: var(--section-pad-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding-block: var(--section-pad-lg);
+  }
+}
+
+/* ── Reveal animation base state ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* ── Thin line divider ── */
+.thin-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(89, 89, 89, 0.4);
+  margin-bottom: 3rem;
+}
+
+/* ── Scroll line animation ── */
+@keyframes scrollline {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ── Logo scroll animation ── */
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Photo placeholder (15anos) ── */
+.photo-placeholder {
+  background: linear-gradient(135deg, var(--dark2) 0%, var(--mid) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light3);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+}

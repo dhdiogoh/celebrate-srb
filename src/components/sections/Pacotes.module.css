@@ -1,0 +1,125 @@
+.pacotes { background: var(--white); color: var(--dark1); }
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .top { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--dark1);
+  max-width: 480px;
+}
+
+.sub {
+  font-size: 0.88rem;
+  color: var(--mid);
+  max-width: 280px;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+.card {
+  border: 1px solid var(--light1);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: var(--amber50);
+  box-shadow: 0 0 0 1px var(--amber15);
+}
+
+.destaque { border-color: var(--dark1); }
+
+.destaqueTag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  font-family: var(--font-display);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark1);
+  margin-bottom: 0.35rem;
+}
+
+.tipo {
+  font-size: 0.75rem;
+  color: var(--mid);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark1);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.priceSub {
+  font-size: 0.75rem;
+  color: var(--mid);
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  height: 1px;
+  background: var(--light1);
+  margin-bottom: 1.25rem;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.item {
+  font-size: 0.8rem;
+  color: var(--mid);
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.item::before {
+  content: '—';
+  color: var(--amber);
+  flex-shrink: 0;
+}
