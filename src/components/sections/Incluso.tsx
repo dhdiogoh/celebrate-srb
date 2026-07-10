@@ -6,15 +6,21 @@ interface InclusoProps {
   cards: InclusoCard[]
   title?: string
   subtitle?: string
+  bgImage?: string
 }
 
 export default function Incluso({
   cards,
   title = 'Você chega. O evento já está pronto.',
   subtitle = 'Tudo incluso com padrão SRB. Sem precisar contratar buffet, garçons, limpeza, som ou equipe externa.',
+  bgImage,
 }: InclusoProps) {
   return (
-    <section className={styles.incluso} id="incluso">
+    <section
+      className={styles.incluso}
+      id="incluso"
+      style={bgImage ? { '--bg-img': `url(${bgImage})` } as React.CSSProperties : undefined}
+    >
       <div className="container">
         <div className={styles.top}>
           <div>
@@ -26,7 +32,7 @@ export default function Incluso({
               ))}
             </h2>
           </div>
-          <p className={`${styles.sub} reveal`}>{subtitle}</p>
+          {subtitle && <p className={`${styles.sub} reveal`}>{subtitle}</p>}
         </div>
 
         <div className={styles.grid}>

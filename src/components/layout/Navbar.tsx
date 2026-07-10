@@ -23,6 +23,11 @@ const defaultLinks: NavLink[] = [
   { label: 'Simulador', href: '#simulador' },
 ]
 
+const audienceLinks = [
+  { label: 'Corporativos', to: '/eventos-corporativos' },
+  { label: '15 Anos', to: '/15-anos' },
+]
+
 const NAVBAR_OFFSET = 80
 
 function scrollToAnchor(href: string) {
@@ -48,6 +53,9 @@ export default function Navbar({
   const { pathname } = useLocation()
   const isHome = pathname === '/'
 
+  // suppress unused warning — variant kept for future use (e.g. theming)
+  void variant
+
   function handleLogoClick(e: React.MouseEvent<HTMLAnchorElement>) {
     if (!isHome) return
     e.preventDefault()
@@ -61,38 +69,38 @@ export default function Navbar({
 
   return (
     <nav className={styles.navbar} aria-label="Navegação principal">
-      {variant !== 'home' && (
-        <Link to="/" className={styles.navBack} aria-label="Voltar para a Home">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <path d="M19 12H5M5 12l7-7M5 12l7 7" />
-          </svg>
-          Home
-        </Link>
-      )}
-
       <Link to="/" className={styles.navLogo} aria-label="Celebrate — ir para a Home" onClick={handleLogoClick}>
         <img src="/images/logos/logo-celebrate-2.webp" alt="Celebrate" className={styles.navLogoImg} />
       </Link>
 
-      <ul className={styles.navLinks} role="list">
-        {links.map((link) => (
+      {links.length > 0 && (
+        <ul className={styles.navLinks} role="list">
+          {links.map((link) => (
+            <li key={link.label}>
+              <a href={link.href} onClick={e => { e.preventDefault(); scrollToAnchor(link.href) }}>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <span className={styles.navSep} aria-hidden="true" />
+
+      <ul className={styles.navAudience} role="list">
+        {audienceLinks.map((link) => (
           <li key={link.label}>
-            <a
-              href={link.href}
-              onClick={e => { e.preventDefault(); scrollToAnchor(link.href) }}
+            <Link
+              to={link.to}
+              className={`${styles.navAudienceLink}${pathname === link.to ? ` ${styles.navAudienceActive}` : ''}`}
             >
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
 
-      <a
-        href={waUrl}
-        className={styles.navCta}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={waUrl} className={styles.navCta} target="_blank" rel="noopener noreferrer">
         {ctaLabel}
       </a>
     </nav>

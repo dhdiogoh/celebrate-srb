@@ -32,7 +32,26 @@ export function useHeroAnimation(variant: HeroVariant = 'home') {
         tl.fromTo('.hero-scroll',
           { opacity: 0 },
           { opacity: 1, duration: 0.8 }, '-=0.2')
+      } else if (variant === 'corporativos') {
+        // sem badge — logo usa hero-wordmark direto
+        const tl = gsap.timeline({ delay: 0.3 })
+        tl.fromTo('.hero-wordmark',
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' })
+        tl.fromTo('.hero-title',
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, '-=0.5')
+        tl.fromTo('.hero-sub',
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
+        tl.fromTo('.hero-cta',
+          { opacity: 0, y: 10, scale: 0.96 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+        tl.fromTo('.hero-scroll',
+          { opacity: 0 },
+          { opacity: 1, duration: 0.8 }, '-=0.2')
       } else {
+        // quinze-anos — mantém badge
         const tl = gsap.timeline({ delay: 0.3 })
         tl.fromTo('.hero-badge',
           { opacity: 0, y: 16 },

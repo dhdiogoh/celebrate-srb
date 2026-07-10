@@ -62,6 +62,14 @@ export interface Stat {
   label: string   // "de espaço completo"
 }
 
+export interface IntroData {
+  label: string
+  title: string
+  text: string
+  imageAlt: string
+  stats: Stat[]
+}
+
 // ─── Pacotes ─────────────────────────────────────────────────────────────────
 
 export interface Pacote {
@@ -80,6 +88,10 @@ export interface Pacote {
 export interface Feedback {
   text: string
   from: string        // "Financial Times"
+  logo?: string       // caminho para a logo da empresa
+  logoScale?: number              // alarga/estreita via maxWidth (default 1)
+  scale?: number                  // peso visual via transform: scale() (default 1)
+  logoVariant?: 'line' | 'solid'  // 'line' = traço/texto; 'solid' = bloco de cor
 }
 
 // ─── Como Funciona ───────────────────────────────────────────────────────────

@@ -10,6 +10,140 @@
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 3rem;
+  position: relative;
+}
+
+.imgWrapBottom {
+  margin-bottom: 0;
+  margin-top: 3rem;
+}
+
+/* ── Layout lateral: texto+stats esq | carrossel dir ── */
+.layoutSide {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .layoutSide {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: stretch;
+  }
+}
+
+.layoutSideLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.layoutSideRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.layoutSideRight .carouselCaption {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.imgWrapSide {
+  margin-bottom: 0;
+  flex: 1;
+  min-height: 380px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .imgWrapSide {
+    min-height: 480px;
+  }
+}
+
+/* ── Carrossel ── */
+.carouselImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.65s ease;
+}
+
+@keyframes kbZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.04); }
+}
+
+.carouselImgActive {
+  opacity: 1;
+  animation: kbZoom 8s ease-out forwards;
+}
+
+.carouselBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.2s;
+}
+
+.carouselBtn:hover { background: rgba(0, 0, 0, 0.72); }
+
+.carouselBtnPrev { left: 1rem; }
+.carouselBtnNext { right: 1rem; }
+
+.carouselDots {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.45rem;
+  z-index: 2;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.38);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.dotActive {
+  background: var(--white);
+  transform: scale(1.25);
+}
+
+.carouselCaption {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--light3);
+  letter-spacing: 0.04em;
+  font-style: italic;
+  margin-top: -1.75rem;
+  margin-bottom: 2.5rem;
 }
 
 @media (min-width: 768px) {

@@ -10,6 +10,7 @@ import Gastronomia from '@/components/sections/Gastronomia'
 import PinScrollSection from '@/components/ui/PinScrollSection'
 import PacotesPinScroll from '@/components/sections/PacotesPinScroll'
 import Simulador from '@/components/sections/Simulador'
+import GaleriaSlider from '@/components/sections/GaleriaSlider'
 import Marcas from '@/components/sections/Marcas'
 import CTAFinal from '@/components/sections/CTAFinal'
 import Endereco from '@/components/sections/Endereco'
@@ -50,6 +51,34 @@ export default function HomePage() {
             />
           </div>
         </section>
+
+        <GaleriaSlider
+          label="Galeria"
+          title="Um espaço construído para impressionar"
+          images={[
+            '/images/home/galeria/IMG_0126.webp',
+            '/images/home/galeria/IMG_0198--1-.webp',
+            '/images/home/galeria/IMG_0204.webp',
+            '/images/home/galeria/IMG_0212.webp',
+            '/images/home/galeria/IMG_0216.webp',
+            '/images/home/galeria/IMG_0222.webp',
+            '/images/home/galeria/IMG_0242.webp',
+            '/images/home/galeria/IMG_7739.webp',
+            '/images/home/galeria/3c1bb826-83f5-4e42-a722-ed06a2374b58.webp',
+            '/images/home/galeria/457415b2-6bc9-4dd6-b4e3-295248d41445.webp',
+            '/images/home/galeria/8c30b7f0-4817-4508-b3d2-3bbed410e24c.webp',
+            '/images/home/galeria/dae09a7d-8346-4368-acd4-45b5d8983056.webp',
+            '/images/home/galeria/ff5ccb68-30ad-40d9-89bb-19678f36913a.webp',
+            '/images/home/galeria/IMG_0171.webp',
+            '/images/home/galeria/IMG_0177.webp',
+          ]}
+          positions={{
+            3: 'center 65%',
+            4: 'center 55%',
+            9: 'center 62%',
+            10: 'center 34%',
+          }}
+        />
 
         {/* Pacotes — Pin Scroll (fundo claro) */}
         <PacotesPinScroll />

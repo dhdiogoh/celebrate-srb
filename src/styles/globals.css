@@ -33,6 +33,11 @@ img {
   background: var(--dark2);
 }
 
+/* Logos com fundo transparente não herdam o placeholder escuro */
+img[src*="/logos/"] {
+  background: transparent;
+}
+
 a {
   text-decoration: none;
   color: inherit;

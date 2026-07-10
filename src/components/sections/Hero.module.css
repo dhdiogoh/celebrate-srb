@@ -21,6 +21,10 @@
   opacity: 0.45;
 }
 
+.hero[data-variant="corporativos"] .imgWrap img {
+  opacity: 0.22;
+}
+
 .overlay {
   position: absolute;
   inset: 0;
@@ -65,6 +69,38 @@
   margin: 0 auto;
   background: transparent;
   filter: drop-shadow(0 2px 32px rgba(0,0,0,0.25));
+}
+
+/* Variante menor para hero de inner pages onde há título abaixo */
+.logoSmall {
+  width: min(220px, 38vw);
+}
+
+/* Padding-bottom empurra o conteúdo centralizado para cima,
+   evitando sobreposição com o ticker fixo no fundo */
+.contentWithTicker {
+  padding-bottom: 110px;
+}
+
+/* Ticker ancorado no fundo do hero, full-width */
+.heroBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+  padding-top: 5rem;
+}
+
+.heroTickerLabel {
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 0;
+  padding: 0 2rem;
 }
 
 /* Placeholder de fundo: mantém o gradiente original mas esconde o texto */

@@ -3,13 +3,14 @@ import styles from './LogoTicker.module.css'
 
 interface LogoTickerProps {
   marcas: Marca[]
+  compact?: boolean
 }
 
-export default function LogoTicker({ marcas }: LogoTickerProps) {
+export default function LogoTicker({ marcas, compact }: LogoTickerProps) {
   const items = [...marcas, ...marcas]
 
   return (
-    <div className={styles.wrap}>
+    <div className={`${styles.wrap}${compact ? ` ${styles.wrapCompact}` : ''}`}>
       <div className={styles.track}>
         {items.map((m, i) => (
           <div key={i} className={styles.item}>

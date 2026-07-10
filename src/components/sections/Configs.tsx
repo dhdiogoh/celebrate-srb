@@ -6,7 +6,7 @@ export default function Configs() {
   return (
     <section className={styles.configs}>
       <div className="container">
-        <h2 className={`${styles.h2} reveal`}>Duas configurações para a festa perfeita</h2>
+        <h2 className={`${styles.h2} reveal`}>O espaço se molda à sua festa</h2>
         <div className={styles.grid}>
           {configCards.map((card) => (
             <div key={card.tag} className={`${styles.card} reveal`}>

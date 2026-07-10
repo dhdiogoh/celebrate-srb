@@ -9,7 +9,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/images/home/IMG_6767-_1_.webp');
+  background-image: var(--bg-img, url('/images/home/IMG_6767-_1_.webp'));
   background-size: cover;
   background-position: center 50%;
   opacity: 0.09;

@@ -8,6 +8,7 @@ type HeroVariant = 'home' | 'corporativos' | 'quinze-anos'
 
 interface HeroProps {
   variant?: HeroVariant
+  children?: React.ReactNode
 }
 
 const heroConfig = {
@@ -27,20 +28,20 @@ const heroConfig = {
     imageSrc: IMAGES.quinzeAnos.hero,
     imageAlt: 'Festa de 15 Anos no Celebrate',
     ctaHref: buildWhatsAppUrl(WA_MESSAGES.orcamento15anos),
-    ctaLabel: 'Planejar minha festa',
+    ctaLabel: 'Planejar a festa',
   },
 }
 
-export default function Hero({ variant = 'home' }: HeroProps) {
+export default function Hero({ variant = 'home', children }: HeroProps) {
   useHeroAnimation(variant)
 
   const cfg = heroConfig[variant]
 
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} data-variant={variant}>
       {/* hero-img-wrap é o selector global que o useHeroAnimation usa para o zoom */}
       <div className={`${styles.imgWrap} hero-img-wrap`}>
-        {cfg.imageSrc ? (
+        {(cfg.imageSrc as string) ? (
           <img
             src={cfg.imageSrc}
             alt={cfg.imageAlt}
@@ -53,7 +54,7 @@ export default function Hero({ variant = 'home' }: HeroProps) {
       </div>
       <div className={styles.overlay} />
 
-      <div className={styles.content}>
+      <div className={`${styles.content}${children ? ` ${styles.contentWithTicker}` : ''}`}>
         {variant === 'home' ? (
           <>
             {/* h1 semântico com a logo real — hero-wordmark para a animação GSAP */}
@@ -72,10 +73,17 @@ export default function Hero({ variant = 'home' }: HeroProps) {
           </>
         ) : variant === 'corporativos' ? (
           <>
-            <div className={`${styles.badge} hero-badge`}>Celebrate</div>
-            <div className={`${styles.wordmarkSmall} hero-wordmark`}>Celebrate</div>
+            <div className={`${styles.logoWrap} hero-wordmark`}>
+              <img
+                src="/images/logos/logo-celebrate-hero-gem.png"
+                alt="Celebrate by Sushi Ruy Barbosa"
+                className={`${styles.logo} ${styles.logoSmall}`}
+                fetchPriority="high"
+                decoding="async"
+              />
+            </div>
             <h1 className={`${styles.title} hero-title`}>
-              Eventos<br />Corporativos
+              Corporativos
             </h1>
             <p className={`${styles.sub} hero-sub`}>
               Estrutura completa, atendimento premium e gastronomia assinada pelo Sushi Ruy Barbosa para o evento da sua empresa.
@@ -83,7 +91,7 @@ export default function Hero({ variant = 'home' }: HeroProps) {
           </>
         ) : (
           <>
-            <div className={`${styles.badgeScript} hero-badge`}>Uma noite que ela nunca vai esquecer</div>
+            <div className={`${styles.badgeScript} hero-badge`}>Uma noite que ninguém vai esquecer</div>
             <div className={`${styles.wordmarkSmall} hero-wordmark`}>Celebrate</div>
             <h1 className={`${styles.title} hero-title`}>15 Anos</h1>
             <p className={`${styles.sub} hero-sub`}>
@@ -99,6 +107,13 @@ export default function Hero({ variant = 'home' }: HeroProps) {
           </svg>
         </a>
       </div>
+
+      {children && (
+        <div className={styles.heroBottom}>
+          <p className={styles.heroTickerLabel}>Marcas que confiam no Celebrate</p>
+          {children}
+        </div>
+      )}
 
       <ScrollLine />
     </section>

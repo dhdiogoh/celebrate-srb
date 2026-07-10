@@ -14,6 +14,7 @@ interface PinScrollSectionProps {
   images: string[]
   scrollMultiplier?: number
   dotIcons?: IconName[]
+  positions?: Record<number, string>
 }
 
 export default function PinScrollSection({
@@ -26,6 +27,7 @@ export default function PinScrollSection({
   images,
   scrollMultiplier,
   dotIcons,
+  positions,
 }: PinScrollSectionProps) {
   const navRef  = useRef<HTMLElement | null>(null)
   const dotRefs = useRef<(HTMLButtonElement | null)[]>([])
@@ -94,7 +96,7 @@ export default function PinScrollSection({
               style={i === 0 ? undefined : { visibility: 'hidden', opacity: 0 }}
             >
               {src ? (
-                <img src={src} alt={steps[i]?.imageAlt ?? ''} loading="lazy" decoding="async" />
+                <img src={src} alt={steps[i]?.imageAlt ?? ''} loading="lazy" decoding="async" style={positions?.[i] ? { objectPosition: positions[i] } : undefined} />
               ) : (
                 <div className="photo-placeholder">{steps[i]?.imageAlt}</div>
               )}

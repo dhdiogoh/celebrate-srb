@@ -3,15 +3,7 @@
    Conteúdo da seção Intro para páginas internas.
    Ao migrar para Sanity, estes objetos viram queries GROQ.
 ═══════════════════════════════════════════ */
-import type { Stat } from './types'
-
-export interface IntroData {
-  label: string
-  title: string
-  text: string
-  imageAlt: string
-  stats: Stat[]
-}
+import type { IntroData } from './types'
 
 export const introCorporativos: IntroData = {
   label: 'O espaço',
@@ -28,8 +20,8 @@ export const introCorporativos: IntroData = {
 
 export const intro15Anos: IntroData = {
   label: 'O espaço',
-  title: 'O palco perfeito para o dia mais especial',
-  text: 'O Celebrate foi criado para transformar a festa dos 15 anos num evento que ela vai guardar para sempre. Espaço com até 160 convidados, camarim exclusivo para os últimos preparativos, pista de dança, palco e toda a gastronomia do Sushi Ruy Barbosa inclusa.',
+  title: 'O palco perfeito para a noite mais importante',
+  text: 'O Celebrate foi criado para transformar a festa dos 15 anos num evento que todos vão guardar para sempre. Espaço com até 160 convidados, camarim exclusivo para os últimos preparativos, pista de dança, palco e toda a gastronomia do Sushi Ruy Barbosa inclusa.',
   imageAlt: 'Espaço Celebrate 15 anos',
   stats: [
     { value: '160',  label: 'convidados (máx.)' },

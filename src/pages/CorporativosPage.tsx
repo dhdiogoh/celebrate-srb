@@ -9,25 +9,24 @@ import Incluso from '@/components/sections/Incluso'
 import Pacotes from '@/components/sections/Pacotes'
 import ComoFunciona from '@/components/sections/ComoFunciona'
 import Feedbacks from '@/components/sections/Feedbacks'
-import Marcas from '@/components/sections/Marcas'
+import GaleriaFotos from '@/components/sections/GaleriaFotos'
+import VideoSection from '@/components/sections/VideoSection'
 import PinScrollSection from '@/components/ui/PinScrollSection'
+import LogoTicker from '@/components/ui/LogoTicker'
 import CTAFinal from '@/components/sections/CTAFinal'
 import Endereco from '@/components/sections/Endereco'
 import SEO from '@/components/ui/SEO'
 import { seoCorporativos } from '@/data/seo'
-import { inclusoHome } from '@/data/incluso'
+import { inclusoCorporativos } from '@/data/incluso'
 import { marcas } from '@/data/marcas'
 import { introCorporativos } from '@/data/intro'
 import { WA_MESSAGES } from '@/utils/whatsapp'
-import {
-  pinScrollAmbienteCorp,
-  pinScrollGaleriaCorp,
-} from '@/data/pinScrolls'
+import { pinScrollAmbienteCorp } from '@/data/pinScrolls'
 import { IMAGES } from '@/config/imagens'
 
 const corpLinks = [
   { label: 'Tipos', href: '#tipos' },
-  { label: 'O que inclui', href: '#incluso' },
+  { label: 'Incluso', href: '#incluso' },
   { label: 'Pacotes', href: '#pacotes' },
   { label: 'Depoimentos', href: '#feedbacks' },
 ]
@@ -46,13 +45,26 @@ export default function CorporativosPage() {
         ctaMessage={WA_MESSAGES.orcamentoCorporativo}
       />
       <main>
-        <Hero variant="corporativos" />
-        <Intro {...introCorporativos} image={IMAGES.corporativos.intro} />
+        <Hero variant="corporativos">
+          <LogoTicker marcas={marcas} compact />
+        </Hero>
+        <Intro
+          {...introCorporativos}
+          image={IMAGES.corporativos.intro}
+          images={[
+            '/images/corporate/IMG_0392.webp',
+            '/images/corporate/IMG_0421.webp',
+            '/images/corporate/IMG_0484.webp',
+            '/images/corporate/IMG_0520.webp',
+          ]}
+          caption="Imagens do evento Pampers & Always realizado no Celebrate"
+          layout="side"
+        />
         <Tipos />
         <Incluso
-          cards={inclusoHome}
-          title="Infraestrutura completa para o seu evento"
-          subtitle="Sem contratar fornecedores externos. Tudo incluso com padrão SRB."
+          cards={inclusoCorporativos}
+          title="Infraestrutura completa. Pensada para eventos corporativos."
+          subtitle="Espaço, tecnologia, gastronomia e equipe em um único endereço. Sem fornecedores externos. Sem surpresas."
         />
 
         {/* Ambiente — Pin Scroll */}
@@ -71,33 +83,35 @@ export default function CorporativosPage() {
         </section>
 
         <Pacotes />
+
+        <GaleriaFotos
+          label="Galeria"
+          title="Eventos que falam por si"
+          images={[
+            '/images/corporativos/galeria/IMG_0390--1-.webp',
+            '/images/corporativos/galeria/IMG_0495.webp',
+            '/images/corporativos/galeria/IMG_0518.webp',
+            '/images/corporativos/galeria/IMG_7121.webp',
+            '/images/corporativos/galeria/IMG_7124--1-.webp',
+            '/images/corporativos/galeria/IMG_7739.webp',
+            '/images/corporativos/galeria/PHOTO-2025-09-23-17-35-17--1-.webp',
+            '/images/corporativos/galeria/PHOTO-2025-09-23-17-35-19-3.webp',
+          ]}
+        />
+
         <ComoFunciona />
 
-        {/* Galeria — Pin Scroll */}
-        <section id="galeria-corp" style={{ background: 'var(--dark2)' }} aria-label="Galeria de eventos corporativos">
-          <div className="container" style={{ paddingBlock: 'var(--section-pad-md)' }}>
-            <PinScrollSection
-              sectionId="galeria-corp"
-              stickyId="galeria-corp-sticky"
-              fillId="galeria-corp-fill"
-              stepPrefix="gc-step-"
-              fotoPrefix="gc-foto-"
-              steps={pinScrollGaleriaCorp}
-              images={IMAGES.corporativos.galeria as unknown as string[]}
-              scrollMultiplier={3}
-            />
-          </div>
-        </section>
+        <VideoSection
+          src="https://r7gebaatjirfgncj.public.blob.vercel-storage.com/Celebrate/Corporativos/MIDIA%20EXPERIENCIA%20DAY_HELLOO%20V2_3.MP4"
+          label="Experiência real"
+          title="Veja como os eventos ganham vida no Celebrate"
+        />
 
         <Feedbacks />
-        <Marcas
-          marcas={marcas}
-          title="Marcas que confiam no Celebrate"
-          subtitle="Mais de 30 marcas nacionais e internacionais já realizaram seus eventos aqui."
-        />
+
         <CTAFinal
           tagline="Vamos trabalhar juntos."
-          h2="Seu evento precisa de uma\ncasa à altura."
+          h2={`Seu evento precisa de\numa casa à altura.`}
           sub="Do briefing à execução, a equipe do Celebrate cuida de cada detalhe para que você e seus convidados vivam uma experiência inesquecível."
           ctaLabel="Solicitar proposta"
           ctaMessage={WA_MESSAGES.orcamentoCorporativo}

@@ -22,5 +22,4 @@ export const tiposCorporativos: Tipo[] = [
   { icon: 'coffee',       name: 'Coquetéis' },
   { icon: 'award',        name: 'Premiações' },
   { icon: 'user-minus',   name: 'Networking' },
-  { icon: 'monitor',      name: 'Videoconferências' },
 ]

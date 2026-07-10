@@ -1,5 +1,78 @@
 import type { Pacote } from './types'
 
+export const pacotes15Anos: Pacote[] = [
+  {
+    id: '15a-coquetel',
+    name: 'Coquetel',
+    indicacao: 'Para a recepção dos convidados antes da festa começar',
+    tipo: 'Serviço volante',
+    pricePerPax: 194,
+    priceSub: 'por pessoa · estimado 100 pax',
+    items: [
+      'Salgados fritos',
+      '4 mini porções (finger foods)',
+      '2 mini sobremesas',
+      'Água, suco e refrigerante',
+    ],
+    isDestaque: false,
+  },
+  {
+    id: '15a-basic',
+    name: 'Basic',
+    indicacao: 'Para uma festa completa com gastronomia SRB',
+    tipo: 'Buffet pré-selecionado',
+    pricePerPax: 244,
+    priceSub: 'por pessoa · estimado 100 pax',
+    items: [
+      'Salgados fritos',
+      'Dadinho de tapioca',
+      'Casquinha de caranguejo',
+      'Filé ao molho roti com cebola',
+      'Camarão com penne à caprese',
+      'Arroz, farofa e batata palha',
+      'Torta 3 chocolates',
+      'Água, suco e refrigerante',
+    ],
+    isDestaque: false,
+  },
+  {
+    id: '15a-splendor',
+    name: 'Splendor',
+    indicacao: 'Para uma noite gastronômica à altura dos 15 anos',
+    tipo: 'Buffet · 3 proteínas',
+    pricePerPax: 300,
+    priceSub: 'por pessoa · estimado 100 pax',
+    items: [
+      'Salgados fritos',
+      '2 finger foods',
+      'Filé, camarão e peixe branco',
+      '1 acompanhamento especial',
+      'Arroz, farofa e batata palha',
+      'Sobremesa a definir',
+      'Água, suco e refrigerante',
+    ],
+    isDestaque: false,
+  },
+  {
+    id: '15a-opulence',
+    name: 'Opulence',
+    indicacao: 'A experiência mais completa da noite dos 15 anos',
+    tipo: 'Buffet + estação de sushi',
+    pricePerPax: 411,
+    priceSub: 'por pessoa · estimado 100 pax',
+    items: [
+      'Salgados fritos',
+      '2 finger foods',
+      'Filé e camarão',
+      'Sushis: salmão, camarão e kani',
+      'Arroz, farofa e batata palha',
+      'Sobremesa a definir',
+      'Água, suco e refrigerante',
+    ],
+    isDestaque: true,
+  },
+]
+
 export const pacotes: Pacote[] = [
   {
     id: 'coquetel',
@@ -38,7 +111,7 @@ export const pacotes: Pacote[] = [
   {
     id: 'splendor',
     name: 'Splendor',
-    indicacao: 'Para eventos mais sofisticados',
+    indicacao: 'Para jantares executivos e lançamentos de produto',
     tipo: 'Buffet · 3 proteínas',
     pricePerPax: 300,
     priceSub: 'por pessoa · estimado 100 pax',
@@ -56,7 +129,7 @@ export const pacotes: Pacote[] = [
   {
     id: 'opulence',
     name: 'Opulence',
-    indicacao: 'Experiência completa e memorável',
+    indicacao: 'Para eventos de alto impacto com gastronomia como diferencial',
     tipo: 'Buffet + estação de sushi',
     pricePerPax: 411,
     priceSub: 'por pessoa · estimado 100 pax',

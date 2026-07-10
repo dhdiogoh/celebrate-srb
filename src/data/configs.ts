@@ -13,6 +13,6 @@ export const configCards: ConfigCard[] = [
     imageAlt: 'Pista iluminada com palco',
     tag: 'Show & Pista de Dança',
     title: 'Até 130 convidados',
-    desc: 'Com palco e pista de dança iluminada. O espaço ideal para a debutante arrasar e a festa não ter hora para acabar.',
+    desc: 'Com palco e pista de dança iluminada. O espaço ideal para quem celebra arrasar e a festa não ter hora para acabar.',
   },
 ]
